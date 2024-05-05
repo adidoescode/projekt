@@ -1,7 +1,6 @@
 {
   "name": "projekt",
   "version": "1.0.0",
-  "description": "",
   "source": "src/index.html",
   "scripts": {
     "start": "parcel --open chrome",
@@ -16,7 +15,7 @@
     "sass": "^1.72.0"
   },
   "dependencies": {
-    "chart.js": "^4.4.2",
     "gulp-sass": "^5.1.0"
-  }
+  },
+  "description": ""
 }
