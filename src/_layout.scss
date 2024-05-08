@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+// Mixins
+
+@mixin border-radius {
+    border-radius: 1em;
+}
+
+// Basic Styles
+
+h1 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1.25em;
+}
+
+hr {
+    margin: .5em;
+}
+
+li {
+    list-style-type: none;
+    padding: .375em;
+}
+
+ul {
+    line-height: 1.8;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+        color: darkgrey;
+    }
+}
+
+
+// Header
+
+header {
+    height: 60px;
+    margin: 0;
+    top: 0;
+    position: static;
+    padding: 0 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100vw;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+
+    .menu-btn {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        background-color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+
+    .menu-btn:hover {
+        box-shadow: 0 0px 5px rgba(0, 0, 0, 0.4);
+
+    }
+
+    .bars {
+        display: block;
+        width: 20px;
+        height: 3px;
+        background-color: black;
+        margin: 5px 0;
+    }
+
+}
+
+nav {
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
+    font-size: 1.5em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 200px;
+    display: none;
+    background-color: white;
+
+    ul {
+        width: 100%;
+        list-style-type: none;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    li {
+        padding: 0.8em 0;
+        width: 100%;
+
+    }
+
+    a {
+        color: black;
+        text-decoration: none;
+        padding: 0 1em;
+
+        &:hover {
+            color: lighten(black, 20%);
+        }
+    }
+
+
+    .menu-btn {
+        display: flex;
+        align-items: center;
+        padding: 8px 15px;
+        cursor: pointer;
+        border: none;
+        background-color: white;
+    }
+
+    .menu-icon {
+        margin-right: 10px;
+    }
+
+    .open {
+        margin: 0 1em;
+    }
+
+    .bars {
+        display: block;
+        width: 20px;
+        height: 3px;
+        background-color: black;
+        margin: 5px 0;
+    }
+
+    .close {
+        margin: 1em 1.5em;
+        padding: 10px 15px;
+    }
+
+    .cross1 {
+        width: 25px;
+        transform: rotate(45deg);
+        position: relative;
+        top: 5px;
+    }
+
+    .cross2 {
+        width: 25px;
+        transform: rotate(135deg);
+        position: relative;
+        top: -3px;
+    }
+}
+
+#tour-container {
+    padding: 5%;
+    margin: 5%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    @include border-radius;
+
+    #halved {
+        width: 50%;
+        margin: 1em 0;
+    }
+
+    h1 {
+        margin: .75em 0;
+    }
+
+    h2 {
+        margin-bottom: 1em;
+        font-size: 22px;
+    }
+
+    img {
+        width: 100%;
+        @include border-radius;
+        margin-bottom: 2em;
+    }
+
+    .btn-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        #rankingBtn {
+            font-size: 1.25em;
+            text-wrap: nowrap;
+            text-decoration: underline;
+            margin: 2em 0;
+            padding: 1em .5em;
+            background-color: lightgreen;
+            @include border-radius;
+        }
+    }
+
+}
+
+#ranking-header {
+    font-size: 1.5em;
+    text-align: center;
+    padding: .5em;
+}
+
+#ranking-container {
+    display: flex;
+
+    ul {
+        padding: 1em;
+
+        hr {
+            width: 50%;
+        }
+
+        li {
+            font-size: 14px;
+            width: auto;
+            height: auto;
+        }
+    }
+
+}
+
+#ranking-container> :not(:nth-child(1)):not(:nth-child(3)) {
+    display: none;
+}
+
+@media only screen and (min-width:992px) {
+
+    // Header för mindre skärmar
+    header {
+        padding: 0 3em;
+        position: relative;
+
+
+
+        .menu-btn {
+            display: none;
+
+        }
+
+        #open-menu {
+            display: none !important;
+        }
+
+
+        nav {
+            text-align: center;
+            display: block !important;
+            box-shadow: 0 0px 0px;
+            height: auto;
+            font-size: 1.4em;
+            width: auto;
+            position: absolute;
+            bottom: 0;
+
+
+            ul {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            li {
+                display: inline;
+                position: relative;
+                bottom: 0;
+                font-size: 1.125em;
+            }
+        }
+    }
+
+    #ranking-container {
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1em;
+        }
+    }
+
+    #ranking-container> :not(:nth-child(1)):not(:nth-child(3)) {
+        display: block;
+    }
+}

@@ -15,7 +15,8 @@
     "sass": "^1.72.0"
   },
   "dependencies": {
-    "gulp-sass": "^5.1.0"
+    "gulp-sass": "^5.1.0",
+    "modernizr": "^3.13.0"
   },
   "description": ""
 }
