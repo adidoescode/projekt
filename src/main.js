@@ -222,6 +222,7 @@ async function displayInfo(tournament) {
 // Visar live världsranking av spelare.
 
 async function displayRanking(rankings) {
+
     let topRanks = rankings.slice(0, 50);
     const rank = document.getElementById("ranking");
     const previousRank = document.getElementById("previous-rank");
@@ -231,8 +232,9 @@ async function displayRanking(rankings) {
     const pointsWon = document.getElementById("points-won");
     const pointsLost = document.getElementById("points-lost");
     const eventsPlayed = document.getElementById("events-played");
-
     if (rank && previousRank && name && totalPoints && averagePoints && pointsWon && pointsLost && eventsPlayed) {
+
+
         topRanks.forEach(stats => {
 
             const divider = document.createElement("hr")
