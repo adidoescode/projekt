@@ -34,6 +34,7 @@ hr {
 li {
     list-style-type: none;
     padding: .375em;
+
 }
 
 ul {
@@ -100,6 +101,7 @@ nav {
     width: 200px;
     display: none;
     background-color: white;
+    z-index: 99999;
 
     ul {
         width: 100%;
@@ -112,7 +114,6 @@ nav {
     li {
         padding: 0.8em 0;
         width: 100%;
-
     }
 
     a {
@@ -206,14 +207,12 @@ nav {
         #rankingBtn {
             font-size: 1.25em;
             text-wrap: nowrap;
-            text-decoration: underline;
             margin: 2em 0;
             padding: 1em .5em;
             background-color: lightgreen;
             @include border-radius;
         }
     }
-
 }
 
 #ranking-header {
@@ -236,6 +235,7 @@ nav {
             font-size: 14px;
             width: auto;
             height: auto;
+
         }
     }
 
@@ -243,6 +243,40 @@ nav {
 
 #ranking-container> :not(:nth-child(1)):not(:nth-child(3)) {
     display: none;
+}
+
+
+footer {
+    margin:1em 0;
+
+    p{
+        text-align: center;
+    }
+    .social-wrapper{
+    
+        display:flex;
+        align-items:center;
+        justify-content: center;
+        svg{
+            width:1.5em;
+            height:1.5em;
+            color:grey;
+            margin:0 1em;
+        }
+    }
+}
+.map-container {
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+
+    #map{
+    @include border-radius;
+    height:500px;
+    width:300px;
+    margin:2em 0;
+    }
 }
 
 @media only screen and (min-width:992px) {
@@ -290,19 +324,34 @@ nav {
             }
         }
     }
+    #tour-container{
 
-    #ranking-container {
-
-        ul {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 1em;
+            li{
+            transition:transform 0.5s ease, opacity 0.5s ease;
+            &:hover{
+                animation:textSize 0.5s forwards;
+                transform-origin: center;
+            }
         }
-    }
-
+        }
     #ranking-container> :not(:nth-child(1)):not(:nth-child(3)) {
         display: block;
+    }
+    footer {
+        margin:1em 0;
+        .social-wrapper{
+        
+            svg{
+                width:2em;
+                height:2em;
+                color:grey;
+                margin:0 1em;
+                transition: transform 0.5s ease;
+                
+                &:hover{
+                    animation: scaleIcon 0.5s forwards;
+                }
+            }
+        }
     }
 }

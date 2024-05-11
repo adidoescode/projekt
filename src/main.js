@@ -26,7 +26,7 @@ const url = 'https://live-golf-data.p.rapidapi.com/schedule?orgId=1&year=2024';
 const options = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': 'fffc51cab4mshf34ebc0aace782ep193c64jsn01cac624678a',
+        'X-RapidAPI-Key': 'a7ff3bed54msh9dc5b0e57c84831p1d6d12jsn9e7346f93a31',
         'X-RapidAPI-Host': 'live-golf-data.p.rapidapi.com'
     }
 };
@@ -49,7 +49,7 @@ const playerUrl = 'https://live-golf-data.p.rapidapi.com/stats?year=2024&statId=
 const playerOptions = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': 'fffc51cab4mshf34ebc0aace782ep193c64jsn01cac624678a',
+        'X-RapidAPI-Key': 'a7ff3bed54msh9dc5b0e57c84831p1d6d12jsn9e7346f93a31',
         'X-RapidAPI-Host': 'live-golf-data.p.rapidapi.com'
     }
 };
