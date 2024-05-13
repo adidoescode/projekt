@@ -9,6 +9,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
+    background-color: #e5e1d0;
 }
 
 // Mixins
@@ -70,7 +71,7 @@ header {
         display: flex;
         align-items: center;
         padding: 8px;
-        background-color: white;
+        background-color: #e5e1d0;
         border: none;
         cursor: pointer;
     }
@@ -85,7 +86,7 @@ header {
         display: block;
         width: 20px;
         height: 3px;
-        background-color: black;
+        background-color: #9c352a;
         margin: 5px 0;
     }
 
@@ -100,7 +101,7 @@ nav {
     height: 100vh;
     width: 200px;
     display: none;
-    background-color: white;
+    background-color: #e5e1d0;
     z-index: 99999;
 
     ul {
@@ -133,7 +134,7 @@ nav {
         padding: 8px 15px;
         cursor: pointer;
         border: none;
-        background-color: white;
+        background-color: #e5e1d0;
     }
 
     .menu-icon {
@@ -142,14 +143,6 @@ nav {
 
     .open {
         margin: 0 1em;
-    }
-
-    .bars {
-        display: block;
-        width: 20px;
-        height: 3px;
-        background-color: black;
-        margin: 5px 0;
     }
 
     .close {
@@ -162,6 +155,7 @@ nav {
         transform: rotate(45deg);
         position: relative;
         top: 5px;
+        background-color: #9c352a;
     }
 
     .cross2 {
@@ -169,6 +163,7 @@ nav {
         transform: rotate(135deg);
         position: relative;
         top: -3px;
+        background-color: #9c352a;
     }
 }
 
@@ -177,6 +172,7 @@ nav {
     margin: 5%;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     @include border-radius;
+    background-color: #fff;
 
     #halved {
         width: 50%;
@@ -245,37 +241,68 @@ nav {
     display: none;
 }
 
+#courseModal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#modalContent {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 1em;
+    @include border-radius;
+    width: 80%;
+
+}
+
+#closeModal {
+    color: #aaa;
+    float: right;
+    font-size: 2em;
+    font-weight: bold;
+}
+
 
 footer {
-    margin:1em 0;
+    margin: 1em 0;
 
-    p{
+    p {
         text-align: center;
     }
-    .social-wrapper{
-    
-        display:flex;
-        align-items:center;
+
+    .social-wrapper {
+
+        display: flex;
+        align-items: center;
         justify-content: center;
-        svg{
-            width:1.5em;
-            height:1.5em;
-            color:grey;
-            margin:0 1em;
+
+        svg {
+            width: 1.5em;
+            height: 1.5em;
+            color: grey;
+            margin: 0 1em;
         }
     }
 }
+
 .map-container {
-    display:flex;
-    justify-content:center;
+    display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
 
-    #map{
-    @include border-radius;
-    height:500px;
-    width:300px;
-    margin:2em 0;
+    #map {
+        @include border-radius;
+        height: 500px;
+        width: 300px;
+        margin: 2em 0;
     }
 }
 
@@ -324,31 +351,36 @@ footer {
             }
         }
     }
-    #tour-container{
 
-            li{
-            transition:transform 0.5s ease, opacity 0.5s ease;
-            &:hover{
-                animation:textSize 0.5s forwards;
+    #tour-container {
+
+        li {
+            transition: transform 0.5s ease, opacity 0.5s ease;
+
+            &:hover {
+                animation: textSize 0.5s forwards;
                 transform-origin: center;
             }
         }
-        }
+    }
+
     #ranking-container> :not(:nth-child(1)):not(:nth-child(3)) {
         display: block;
     }
+
     footer {
-        margin:1em 0;
-        .social-wrapper{
-        
-            svg{
-                width:2em;
-                height:2em;
-                color:grey;
-                margin:0 1em;
+        margin: 1em 0;
+
+        .social-wrapper {
+
+            svg {
+                width: 2em;
+                height: 2em;
+                color: grey;
+                margin: 0 1em;
                 transition: transform 0.5s ease;
-                
-                &:hover{
+
+                &:hover {
                     animation: scaleIcon 0.5s forwards;
                 }
             }
