@@ -26,7 +26,7 @@ const url = 'https://live-golf-data.p.rapidapi.com/schedule?orgId=1&year=2024';
 const options = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': 'a7ff3bed54msh9dc5b0e57c84831p1d6d12jsn9e7346f93a31',
+        'X-RapidAPI-Key': '9795d46397msh5ec52a2ad48e162p1265b4jsne06838ef29ad',
         'X-RapidAPI-Host': 'live-golf-data.p.rapidapi.com'
     }
 };
@@ -49,7 +49,7 @@ const playerUrl = 'https://live-golf-data.p.rapidapi.com/stats?year=2024&statId=
 const playerOptions = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': 'a7ff3bed54msh9dc5b0e57c84831p1d6d12jsn9e7346f93a31',
+        'X-RapidAPI-Key': '9795d46397msh5ec52a2ad48e162p1265b4jsne06838ef29ad',
         'X-RapidAPI-Host': 'live-golf-data.p.rapidapi.com'
     }
 };
@@ -110,26 +110,18 @@ async function formatTournaments(result) {
         const tourDivEl = document.getElementById("tour-div");
         const tourUpcomingEl = document.getElementById("tour-upcoming");
         const tourLiEl = document.createElement("li");
-        const tourLinkEl = document.createElement("a");
-        tourLinkEl.href = "schedule.html";
         // Kommande tävlingar
 
         if (tourDivEl && tourUpcomingEl) {
             const tourLiText = document.createTextNode(formatObject.name);
             const upcomingDate = document.createTextNode(" " + capitalDate);
 
-            tourLinkEl.appendChild(tourLiText);
-            tourLinkEl.appendChild(upcomingDate);
-
-            tourLiEl.appendChild(tourLinkEl);
+            tourLiEl.appendChild(tourLiText);
+            tourLiEl.appendChild(upcomingDate)
 
             tourUpcomingEl.appendChild(tourLiEl);
 
             tourDivEl.appendChild(tourUpcomingEl);
-
-            tourLinkEl.addEventListener('click', function () {
-                displayInfo(formatObject);
-            });
         }
     });
 
@@ -168,54 +160,8 @@ async function formatTournaments(result) {
 
             tourNextEl.appendChild(tourNextLiEl);
 
-            tourNextAnchor.addEventListener('click', function () {
-                displayInfo(nextTournament);
-            });
         }
-    })
-
-
-}
-
-async function displayInfo(tournament) {
-
-    const tournamentList = document.getElementById("info-list");
-    const tournamentName = document.createElement("li");
-    const tournamentStart = document.createElement("li");
-    const tournamentEnd = document.createElement("li");
-    const tournamentPurse = document.createElement("li");
-    const fedexPoints = document.createElement("li");
-
-    const getStartDate = tournament.date.start["$date"]["$numberLong"];
-    const startDate = new Date(parseInt(getStartDate));
-    const formattedStartDate = startDate.toLocaleDateString("en-US", {
-        day: "numeric",
-        month: "long"
     });
-    const getEndDate = tournament.date.end["$date"]["$numberLong"];
-    const endDate = new Date(parseInt(getEndDate));
-    const formattedEndDate = endDate.toLocaleDateString("en-US", {
-        day: "numeric",
-        month: "long"
-    });
-
-    const tournamentNameText = document.createTextNode(tournament.name);
-    const tournamentStartText = document.createTextNode(formattedStartDate);
-    const tournamentEndText = document.createTextNode(formattedEndDate);
-    const tournamentPurseText = document.createTextNode(tournament.purse["$numberInt"]);
-    const fedexPointsText = document.createTextNode(tournament.fedexCupPoints["$numberInt"]);
-
-    tournamentName.appendChild(tournamentNameText);
-    tournamentStart.appendChild(tournamentStartText);
-    tournamentEnd.appendChild(tournamentEndText);
-    tournamentPurse.appendChild(tournamentPurseText);
-    fedexPoints.appendChild(fedexPointsText);
-
-    tournamentList.appendChild(tournamentName);
-    tournamentList.appendChild(tournamentStart)
-    tournamentList.appendChild(tournamentEnd);
-    tournamentList.appendChild(tournamentPurse);
-    tournamentList.appendChild(fedexPoints);
 }
 
 

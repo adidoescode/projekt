@@ -19,7 +19,7 @@ async function fetchCourses(latitude, longitude) {
   const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': 'a7ff3bed54msh9dc5b0e57c84831p1d6d12jsn9e7346f93a31',
+      'X-RapidAPI-Key': '9795d46397msh5ec52a2ad48e162p1265b4jsne06838ef29ad',
       'X-RapidAPI-Host': 'golf-course-finder.p.rapidapi.com'
     }
   };
@@ -57,13 +57,14 @@ async function displayCourses(result) {
   result.forEach(course => {
     const courseListEl = document.getElementById("courseList");
     const courseLiEl = document.createElement("li");
+    const divider = document.createElement("hr")
 
 
     if (courseListEl) {
       const courseLiText = document.createTextNode(course.club_name);
 
       courseLiEl.appendChild(courseLiText);
-
+      courseLiEl.appendChild(divider.cloneNode());
       courseLiEl.setAttribute("id", "courseLink");
       courseListEl.appendChild(courseLiEl);
 
@@ -75,7 +76,6 @@ async function displayCourses(result) {
 }
 
 async function courseInformation(course) {
-  console.log(course);
   const modalEl = document.getElementById("courseModal");
   const closeModalEl = document.getElementById("closeModal");
   const modalListEl = document.getElementById("modalList");
