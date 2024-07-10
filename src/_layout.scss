@@ -33,8 +33,8 @@ h1 {
 }
 
 img {
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 100%;
 }
 
 h4 {
@@ -60,7 +60,7 @@ a {
     color: black;
 
     &:hover {
-        color: darkgrey;
+        color: $text-hover;
     }
 }
 
@@ -68,7 +68,7 @@ a {
 // Header
 
 header {
-    height: 60px;
+    height: 80px;
     margin: 0;
     top: 0;
     position: static;
@@ -201,6 +201,27 @@ nav {
         font-size: 22px;
     }
 
+    picture {
+        width: 90%;
+        height: 90%;
+        opacity: 1;
+
+        img {
+            width: 100%;
+            height: 100%;
+
+            &:hover {
+                animation: maskBanner 1s forwards;
+            }
+        }
+    }
+
+    .banner-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     img {
         width: 100%;
         @include border-radius;
@@ -213,7 +234,7 @@ nav {
         justify-content: center;
 
 
-        #rankingBtn {
+        .index-btn {
             font-size: 1.25em;
             text-wrap: nowrap;
             margin: 2em 0;
@@ -284,6 +305,12 @@ nav {
     @include container-box-shadow;
     background-color: white;
     @include border-radius;
+
+    h1 {
+        font-size: 1.25em;
+        padding: 1em;
+
+    }
 }
 
 #courseList {
@@ -314,6 +341,7 @@ nav {
     float: right;
     font-size: 2em;
     font-weight: bold;
+    cursor: pointer;
 }
 
 #modalList {
@@ -369,6 +397,7 @@ footer {
     header {
         padding: 0 3em;
         position: relative;
+        height: 100px;
 
 
 
@@ -404,7 +433,7 @@ footer {
                 display: inline;
                 position: relative;
                 bottom: 0;
-                font-size: 1.125em;
+                font-size: 1.25em;
             }
         }
     }
@@ -415,32 +444,172 @@ footer {
             transition: transform 0.5s ease, opacity 0.5s ease;
 
             &:hover {
-                animation: textSize 0.5s forwards;
+                animation: textSizeMedium 1s forwards;
                 transform-origin: center;
             }
         }
+
+        h1 {
+            font-size: 2.25em;
+        }
+
+        h2 {
+            font-size: 1.75em;
+        }
+
+        picture {
+            width: 80%;
+            height: 80%;
+        }
+
+
+        .btn-wrapper {
+
+            .index-btn {
+                font-size: 2em;
+
+                &:hover {
+                    color: $text-hover;
+                }
+            }
+        }
+
+        h4 {
+            font-size: 2em;
+        }
+
+        li {
+            font-size: 1.5em;
+        }
     }
 
-    #ranking-container> :not(:nth-child(1)):not(:nth-child(3)) {
+    #ranking-container> :not(:nth-child(2)):not(:nth-child(5)):not(:nth-child(7)):not(:nth-child(8)) {
         display: block;
     }
 
     footer {
-        margin: 1em 0;
+        margin-top: 1em;
 
         .social-wrapper {
 
             svg {
-                width: 2em;
-                height: 2em;
-                color: grey;
+                width: 2.5em;
+                height: 2.5em;
+                color: $svg-color;
                 margin: 0 1em;
                 transition: transform 0.5s ease;
 
                 &:hover {
-                    animation: scaleIcon 0.5s forwards;
+                    animation: scaleIcon 0.5s alternate-reverse;
                 }
             }
         }
+
+        p {
+            font-size: 1.5em;
+        }
     }
+
+    #ranking-container {
+        ul {
+            li {
+                font-size: 1.25em;
+            }
+        }
+    }
+
+    #ranking-header {
+        font-size: 2.25em;
+        padding: 1em;
+        border-radius: 0 0 2em 2em;
+    }
+
+    #tour-container img {
+        width: 80%;
+        height: 80%;
+    }
+
+    .map-container {
+        #map {
+            width: 600px;
+        }
+    }
+
+    .list-container {
+        margin: 3em 8em;
+
+        #courseList {
+            width: 60%;
+
+            li {
+                font-size: 1.125em;
+            }
+        }
+
+        h1 {
+            font-size: 1.5em;
+            padding: 2em;
+        }
+    }
+
+    #modalContent {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width:1600px) {
+    header {
+        height: 120px;
+
+        nav {
+            li {
+                font-size: 1.5em;
+            }
+        }
+    }
+
+    #tour-container {
+        picture {
+            width: 60%;
+            height: 60%;
+        }
+    }
+
+    // Ger priority över reglerna som tar bort vissa ul-element
+    #ranking-container#ranking-container>* {
+        display: block;
+    }
+
+    #ranking-header {
+        border-radius: 0 0 3em 3em;
+    }
+
+    .map-container {
+        #map {
+            width: 800px;
+            height: 700px;
+        }
+    }
+
+    .list-container {
+        margin: 3em 20em;
+
+        #courseList {
+            width: 60%;
+
+            li {
+                font-size: 1.375em;
+            }
+        }
+
+        h1 {
+            font-size: 2em;
+            padding: 2em;
+        }
+    }
+
+    #modalContent {
+        width: 60%;
+    }
+
 }

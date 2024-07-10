@@ -15,7 +15,11 @@
 
 <body>
     <header><a href="index.html">
-            <img src="bilagor/logo-small.png" alt="Logo med röd färg och texten Swingscope.">
+            <picture>
+                <source media="(min-width:1600px)" srcset="bilagor/logo-large.png">
+                <source media="(min-width:992px)" srcset="bilagor/logo-medium.png">
+                <img src="bilagor/logo-small.png" alt="Logo med röd färg och texten Swingscope.">
+            </picture>
         </a>
         <button class="menu-btn open" id="open-menu">
             <span class="menu-icon">
@@ -44,7 +48,7 @@
             <div id="map"></div>
         </div>
         <div class="list-container">
-            <h1 style="text-align: center; padding:1em; font-size:1.25em;">Click the courses for more information.</h1>
+            <h1>Click the courses for more information.</h1>
             <ul id="courseList"></ul>
         </div>
         <div id="courseModal">

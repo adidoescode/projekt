@@ -15,7 +15,11 @@
 
 <body>
     <header><a href="index.html">
-            <img src="bilagor/logo-small.png" alt="Logo med röd färg och texten Swingscope.">
+            <picture>
+                <source media="(min-width:1600px)" srcset="bilagor/logo-large.png">
+                <source media="(min-width:992px)" srcset="bilagor/logo-medium.png">
+                <img src="bilagor/logo-small.png" alt="Logo med röd färg och texten Swingscope.">
+            </picture>
         </a>
         <button class="menu-btn open" id="open-menu">
             <span class="menu-icon">
@@ -44,11 +48,27 @@
             <h1>Keep track of Golf with us at Swingscope.</h1>
             <hr id="halved">
             <h2>We strive for excellence and the ability to provide all types of statistics to you.</h2>
-            <picture>
-                <img src="bilagor/pexels-tyler-hendy-9620-54122.jpg" alt="">
-            </picture>
+            <div class="banner-wrapper">
+                <picture>
+                    <!-- WebP bilder används ifall de är tillgängliga -->
+                    <source srcset="bilagor/banner-large.webp" media="(min-width: 800px)" type="image/webp">
+                    <source srcset="bilagor/banner-medium.webp" media="(min-width: 500px)" type="image/webp">
+                    <source srcset="bilagor/banner-small.webp" type="image/webp">
+
+                    <!-- Tar JPG bilder ifall WebP inte är tillgängligt -->
+                    <source srcset="bilagor/banner-large.jpg" media="(min-width: 800px)" type="image/jpeg">
+                    <source srcset="bilagor/banner-medium.jpg" media="(min-width: 500px)" type="image/jpeg">
+                    <source srcset="bilagor/banner-small.jpg" type="image/jpeg">
+
+                    <!-- Vanliga bilden ifall inget är supportat / vald -->>
+                    <img src="bilagor/banner-small.jpg" alt="Descriptive text for the image">
+                </picture>
+            </div>
             <div class="btn-wrapper">
-                <a href="ranking.html" id="rankingBtn">View the world rankings here</a>
+                <a href="ranking.html" class="index-btn">View the world rankings here</a>
+            </div>
+            <div class="btn-wrapper">
+                <a href="courses.html" class="index-btn">View courses here</a>
             </div>
             <div id="tour-div">
                 <ul id="tour-next">

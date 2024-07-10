@@ -15,7 +15,11 @@
 
 <body>
     <header><a href="index.html">
-            <img src="bilagor/logo-small.png" alt="Logo med röd färg och texten Swingscope.">
+            <picture>
+                <source media="(min-width:1600px)" srcset="bilagor/logo-large.png">
+                <source media="(min-width:992px)" srcset="bilagor/logo-medium.png">
+                <img src="bilagor/logo-small.png" alt="Logo med röd färg och texten Swingscope.">
+            </picture>
         </a>
         <button class="menu-btn open" id="open-menu">
             <span class="menu-icon">
@@ -44,9 +48,6 @@
         <div id="ranking-container">
             <ul id="ranking">
                 <h4>Ranking</h4>
-            </ul>
-            <ul id="previous-rank">
-                <h4>Previous Rank</h4>
             </ul>
             <ul id="name">
                 <h4>Full name</h4>

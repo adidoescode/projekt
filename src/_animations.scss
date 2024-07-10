@@ -2,24 +2,48 @@
 
 // Animation som förstorar text när den blir hoverad
 
-@keyframes textSize{
-    100%{
-        font-size:1.25em;
-        opacity:0.5;
+@keyframes textSizeMedium {
+    100% {
+        font-size: 2em;
+        opacity: 0.5;
     }
-    0%{
-        font-size:1em;
+
+    0% {
+        font-size: 1.5em;
+        opacity: 1;
+    }
+}
+
+@keyframes textSizeLarge {
+    100% {
+        font-size: 2.25em;
+        opacity: 0.5;
+    }
+
+    0% {
+        font-size: 2em;
         opacity: 1;
     }
 }
 
 // Animation som scalear upp social media vid hover
 
-@keyframes scaleIcon{
-    100%{
-        transform:scale(1.15, 1.15);
+@keyframes scaleIcon {
+    100% {
+        transform: scale(1.15, 1.15);
     }
-    0%{
-        transform:scale(1,1);
+
+    0% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes maskBanner {
+    100% {
+        opacity: 0.5;
+    }
+
+    0% {
+        opacity: 1;
     }
 }

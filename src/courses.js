@@ -1,5 +1,4 @@
-// Javascript för karta och golfbanor
-
+// Funktion för att få användarens plats och köra callback-funktionen med latitud och longitud
 function getLocation(callback) {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -14,6 +13,7 @@ function getLocation(callback) {
   }
 }
 
+// Asynkron funktion för att hämta golfbanor från API med användarens latitud och longitud
 async function fetchCourses(latitude, longitude) {
   const url = `https://golf-course-finder.p.rapidapi.com/api/golf-clubs/?latitude=${latitude}&longitude=${longitude}&miles=25`;
   const options = {
@@ -32,20 +32,21 @@ async function fetchCourses(latitude, longitude) {
     console.error(error);
   }
 }
-// Lägger till passiva listeners för att hindra default behaviour på scroll då det är en bugg med kartan
 
+// Lägger till passiva lyssnare för att förhindra standardbeteende vid scroll (en bugg med kartan)
 document.addEventListener('touchstart', function () { }, { passive: true });
 document.addEventListener('touchmove', function () { }, { passive: true });
 
+// Initialiserar autocomplete för kartan med användarens latitud och longitud
 async function initAutocomplete(latitude, longitude) {
-  // Skapar en ny map med ifall användaren godkänner dess plats
+  // Skapar en ny karta om användaren godkänner platsåtkomst
   const map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: +latitude, lng: longitude },
     zoom: 13,
     mapTypeId: "roadmap",
   });
 
-  //Skapar även en marker för stället kartan laddas in på
+  // Skapar en markör för startplatsen på kartan
   const initialMarker = new google.maps.Marker({
     map: map,
     position: map.getCenter(),
@@ -53,12 +54,12 @@ async function initAutocomplete(latitude, longitude) {
   });
 };
 
+// Visar golfbanor på sidan
 async function displayCourses(result) {
   result.forEach(course => {
     const courseListEl = document.getElementById("courseList");
     const courseLiEl = document.createElement("li");
     const divider = document.createElement("hr")
-
 
     if (courseListEl) {
       const courseLiText = document.createTextNode(course.club_name);
@@ -68,6 +69,7 @@ async function displayCourses(result) {
       courseLiEl.setAttribute("id", "courseLink");
       courseListEl.appendChild(courseLiEl);
 
+      // Lägger till klickhändelse för att visa mer information om golfbanan
       courseLiEl.addEventListener('click', function () {
         courseInformation(course);
       });
@@ -75,6 +77,7 @@ async function displayCourses(result) {
   });
 }
 
+// Visar detaljerad information om en golfbana i en modal
 async function courseInformation(course) {
   const modalEl = document.getElementById("courseModal");
   const closeModalEl = document.getElementById("closeModal");
@@ -98,13 +101,11 @@ async function courseInformation(course) {
   clubWebsiteEl.textContent = `Website: ${course.website}`;
   clubPhoneEl.textContent = `Phone: ${course.phone}`;
 
-
   if (course.restaurant) {
     clubRestaurantEl.textContent = "This course has a restaurant.";
   } else {
     clubRestaurantEl.textContent = "This course does not have a restaurant.";
   }
-
 
   modalListEl.appendChild(clubNameEl);
   modalListEl.appendChild(clubAddressEl);
@@ -114,12 +115,13 @@ async function courseInformation(course) {
   modalListEl.appendChild(clubPhoneEl);
   modalListEl.appendChild(clubRestaurantEl);
 
-
+  // Stänger modalen när användaren klickar på stäng-knappen
   closeModalEl.addEventListener('click', function () {
     modalEl.style.display = "none";
     modalListEl.innerHTML = "";
   });
 
+  // Stänger modalen när användaren klickar utanför modalens innehåll
   window.addEventListener('click', function (event) {
     if (event.target === modalEl) {
       modalEl.style.display = "none";
@@ -128,9 +130,11 @@ async function courseInformation(course) {
   });
 }
 
-
+// Få användarens plats och initiera kartan och hämta golfbanor
 getLocation(function (latitude, longitude) {
   initAutocomplete(latitude, longitude);
   fetchCourses(latitude, longitude);
 });
+
+// Gör funktionen initAutocomplete global så att den kan användas av Google Maps API
 window.initAutocomplete = initAutocomplete;

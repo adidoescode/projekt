@@ -145,18 +145,15 @@ async function formatTournaments(result) {
 
         const tourNextLiEl = document.createElement("li");
         const tourNextEl = document.getElementById("tour-next");
-        const tourNextAnchor = document.createElement("a");
-        tourNextAnchor.href = "schedule.html";
 
         if (tourNextEl) {
 
             const tourNextLiText = document.createTextNode(nextTournament.name)
             const nextDate = document.createTextNode(" " + capitalDate);
 
-            tourNextAnchor.appendChild(tourNextLiText);
-            tourNextAnchor.appendChild(nextDate);
 
-            tourNextLiEl.appendChild(tourNextAnchor);
+            tourNextLiEl.appendChild(tourNextLiText);
+            tourNextLiEl.appendChild(nextDate)
 
             tourNextEl.appendChild(tourNextLiEl);
 
@@ -171,21 +168,19 @@ async function displayRanking(rankings) {
 
     let topRanks = rankings.slice(0, 50);
     const rank = document.getElementById("ranking");
-    const previousRank = document.getElementById("previous-rank");
     const name = document.getElementById("name");
     const totalPoints = document.getElementById("total-points");
     const averagePoints = document.getElementById("average-points");
     const pointsWon = document.getElementById("points-won");
     const pointsLost = document.getElementById("points-lost");
     const eventsPlayed = document.getElementById("events-played");
-    if (rank && previousRank && name && totalPoints && averagePoints && pointsWon && pointsLost && eventsPlayed) {
+    if (rank && name && totalPoints && averagePoints && pointsWon && pointsLost && eventsPlayed) {
 
 
         topRanks.forEach(stats => {
 
             const divider = document.createElement("hr")
             const rankEl = document.createElement("li");
-            const previousRankEl = document.createElement("li");
             const nameEl = document.createElement("li");
             const totalPointsEl = document.createElement("li");
             const averagePointsEl = document.createElement("li");
@@ -195,7 +190,6 @@ async function displayRanking(rankings) {
 
 
             const rankElText = document.createTextNode(stats.rank['$numberInt']);
-            const previousRankElText = document.createTextNode(stats.previousRank['$numberInt']);
             const nameElText = document.createTextNode(stats.fullName);
             const totalPointsElText = document.createTextNode(stats.totalPoints['$numberDouble']);
             const averagePointsElText = document.createTextNode(stats.avgPoints['$numberDouble']);
@@ -204,7 +198,6 @@ async function displayRanking(rankings) {
             const eventsPlayedElText = document.createTextNode(stats.events['$numberInt']);
 
             rankEl.appendChild(rankElText);
-            previousRankEl.appendChild(previousRankElText);
             nameEl.appendChild(nameElText);
             totalPointsEl.appendChild(totalPointsElText);
             averagePointsEl.appendChild(averagePointsElText);
@@ -214,8 +207,6 @@ async function displayRanking(rankings) {
 
             rank.appendChild(rankEl);
             rank.appendChild(divider.cloneNode());
-            previousRank.appendChild(previousRankEl);
-            previousRank.appendChild(divider.cloneNode());
             name.appendChild(nameEl);
             name.appendChild(divider.cloneNode());
             totalPoints.appendChild(totalPointsEl);
