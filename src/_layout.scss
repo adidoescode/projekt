@@ -281,7 +281,7 @@ nav {
 
 }
 
-#ranking-container> :not(:nth-child(1)):not(:nth-child(3)) {
+#ranking-container> :not(:nth-child(1)):not(:nth-child(2)) {
     display: none;
 }
 
@@ -484,7 +484,7 @@ footer {
         }
     }
 
-    #ranking-container> :not(:nth-child(2)):not(:nth-child(5)):not(:nth-child(7)):not(:nth-child(8)) {
+    #ranking-container> :not(:nth-child(2)):not(:nth-child(4)):not(:nth-child(5)):not(:nth-child(6)):not(:nth-child(7)):not(:nth-child(8)) {
         display: block;
     }
 
