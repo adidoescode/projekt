@@ -142,7 +142,6 @@ async function formatTournaments(result) {
 
         // Variabler som kommer utgöra html:en för snart kommande tävlingar.
 
-
         const tourNextLiEl = document.createElement("li");
         const tourNextEl = document.getElementById("tour-next");
 
